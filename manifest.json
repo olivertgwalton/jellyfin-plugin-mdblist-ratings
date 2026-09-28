@@ -1,0 +1,11 @@
+[
+  {
+    "guid": "00132eff-99e1-4ece-a914-d6e0f1dc348d",
+    "name": "MDBList Ratings",
+    "description": "IMDb, TMDB and Rotten Tomatoes critics and audience scores from MDBList, stored per item and served at /Ratings/{itemId}.",
+    "overview": "Rotten Tomatoes, IMDb and TMDB scores for films and shows.",
+    "owner": "olivertgwalton",
+    "category": "Metadata",
+    "versions": []
+  }
+]

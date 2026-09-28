@@ -1,0 +1,15 @@
+{
+  "category": "Metadata",
+  "changelog": "",
+  "description": "IMDb, TMDB and Rotten Tomatoes critics and audience scores from MDBList, served at /Ratings/{itemId}.",
+  "guid": "00132eff-99e1-4ece-a914-d6e0f1dc348d",
+  "name": "MDBList Ratings",
+  "overview": "Rotten Tomatoes, IMDb and TMDB scores for films and shows.",
+  "owner": "olivertgwalton",
+  "targetAbi": "12.0.0.0",
+  "timestamp": "2026-09-28T00:00:00.0000000Z",
+  "version": "1.0.0.0",
+  "status": "Active",
+  "autoUpdate": false,
+  "assemblies": []
+}

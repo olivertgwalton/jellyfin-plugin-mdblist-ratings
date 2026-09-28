@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>MDBList Ratings</title>
+</head>
+<body>
+    <div id="MdbListRatingsPage" data-role="page" class="page type-interior pluginConfigurationPage" data-require="emby-input,emby-button">
+        <div data-role="content">
+            <div class="content-primary">
+                <form id="MdbListRatingsForm">
+                    <div class="sectionTitleContainer flex align-items-center">
+                        <h2 class="sectionTitle">MDBList Ratings</h2>
+                    </div>
+                    <p class="fieldDescription">IMDb, TMDB and Rotten Tomatoes critics and audience scores for films and shows, fetched after every library scan and every six hours (Dashboard ▸ Scheduled Tasks ▸ Fetch MDBList ratings). The free tier allows 1,000 requests a day; a large library fills in over several days.</p>
+                    <div class="inputContainer">
+                        <label class="inputLabel inputLabelUnfocused" for="ApiKey">API key</label>
+                        <input id="ApiKey" name="ApiKey" type="password" is="emby-input" autocomplete="off" />
+                        <div class="fieldDescription">From mdblist.com ▸ Preferences ▸ API key.</div>
+                    </div>
+                    <div class="inputContainer">
+                        <label class="inputLabel inputLabelUnfocused" for="RefreshDays">Refresh after (days)</label>
+                        <input id="RefreshDays" name="RefreshDays" type="number" min="1" is="emby-input" />
+                    </div>
+                    <button is="emby-button" type="submit" class="raised button-submit block emby-button"><span>Save</span></button>
+                </form>
+            </div>
+        </div>
+        <script type="text/javascript">
+            (function () {
+                var pluginId = '00132eff-99e1-4ece-a914-d6e0f1dc348d';
+                var page = document.querySelector('#MdbListRatingsPage');
+                page.addEventListener('pageshow', function () {
+                    Dashboard.showLoadingMsg();
+                    ApiClient.getPluginConfiguration(pluginId).then(function (config) {
+                        page.querySelector('#ApiKey').value = config.ApiKey || '';
+                        page.querySelector('#RefreshDays').value = config.RefreshDays;
+                        Dashboard.hideLoadingMsg();
+                    });
+                });
+                page.querySelector('#MdbListRatingsForm').addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    Dashboard.showLoadingMsg();
+                    ApiClient.getPluginConfiguration(pluginId).then(function (config) {
+                        config.ApiKey = page.querySelector('#ApiKey').value.trim();
+                        config.RefreshDays = parseInt(page.querySelector('#RefreshDays').value, 10) || 30;
+                        ApiClient.updatePluginConfiguration(pluginId, config).then(Dashboard.processPluginConfigurationUpdateResult);
+                    });
+                    return false;
+                });
+            })();
+        </script>
+    </div>
+</body>
+</html>
