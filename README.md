@@ -31,7 +31,7 @@ GET /Ratings/{itemId}
 Authorization: MediaBrowser … Token="…"   (any signed-in user)
 ```
 
-`200` with the item's scores, in the order a detail page reads them. An item the plugin has no
+`200` with the item's scores. Their order is not part of the contract. An item the plugin has no
 scores for answers `[]`. **A `404` means the plugin is not installed.**
 
 ```json
