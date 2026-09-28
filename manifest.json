@@ -6,6 +6,15 @@
     "overview": "Rotten Tomatoes, IMDb and TMDB scores for films and shows.",
     "owner": "olivertgwalton",
     "category": "Metadata",
-    "versions": []
+    "versions": [
+      {
+        "version": "1.0.0.0",
+        "changelog": "First release.",
+        "targetAbi": "12.0.0.0",
+        "sourceUrl": "https://github.com/olivertgwalton/jellyfin-plugin-mdblist-ratings/releases/download/v1.0.0.0/mdblist-ratings_1.0.0.0.zip",
+        "checksum": "1ddd0ad6b076a63b685b056f36698838",
+        "timestamp": "2026-09-28T08:17:41Z"
+      }
+    ]
   }
 ]
