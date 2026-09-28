@@ -17,7 +17,7 @@ entry = {
     "targetAbi": "12.0.0.0",
     "sourceUrl": f"https://github.com/{repo}/releases/download/v{version}/{zip_path}",
     "checksum": hashlib.md5(open(zip_path, "rb").read()).hexdigest(),
-    "timestamp": datetime.datetime.now(datetime.UTC).strftime("%Y-%m-%dT%H:%M:%SZ"),
+    "timestamp": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
 }
 plugin = manifest[0]
 plugin["versions"] = [entry] + [v for v in plugin["versions"] if v["version"] != version]
